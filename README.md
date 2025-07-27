@@ -24,35 +24,7 @@ QR Code Verification: Upon approval, a unique, tamper-proof QR code is generated
 Centralized Management: Provides a single source of truth for student information, leave history, and user roles, eliminating paperwork and improving record-keeping.
 
 🔄 System Workflow
-This diagram illustrates the complete workflow of the GateGuard system. GitHub will render this code into a visual flowchart.
-
-graph TD
-    subgraph "Leave Pass Process"
-        A(Student Applies for Pass) --> B{Warden Reviews Request};
-        B -- Approves --> C[Pass Approved & QR Code Generated];
-        B -- Rejects --> D[Pass Rejected];
-        C --> E(Student Shows QR at Gate);
-        E --> F[Security Scans QR Code];
-        F --> G{Verify Pass Details};
-        G -- Valid --> H(Log Student Exit/Entry);
-        G -- Invalid --> I(Deny Exit/Entry);
-    end
-
-    subgraph "Administrative Roles"
-        SA(Super Admin) -- Manages All Accounts --> U(Users: Student, Warden, etc.);
-        CL(Clerk) -- Manages Student Records --> A;
-    end
-
-    style A fill:#cde4ff,stroke:#5a9bd5
-    style B fill:#fff2cc,stroke:#ffbf00
-    style C fill:#d5e8d4,stroke:#82b366
-    style D fill:#f8cecc,stroke:#b85450
-    style E fill:#cde4ff,stroke:#5a9bd5
-    style F fill:#dae8fc,stroke:#6c8ebf
-    style H fill:#d5e8d4,stroke:#82b366
-    style I fill:#f8cecc,stroke:#b85450
-    style SA fill:#e1d5e7,stroke:#9673a6
-    style CL fill:#e1d5e7,stroke:#9673a6
+This diagram illustrates the complete workflow of the GateGuard system, from a student's initial request to the final security verification.
 
 🛠️ Tech Stack
 Frontend:
