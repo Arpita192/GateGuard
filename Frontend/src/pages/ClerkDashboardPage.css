@@ -1,0 +1,40 @@
+.clerk-dashboard {
+  background-color: #0d1b2a;
+  min-height: calc(100vh - 70px);
+  color: #e0e1dd;
+  padding: 2rem 3rem;
+}
+
+.clerk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #415a77;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.clerk-header h1 { font-size: 2.5rem; font-weight: 600; margin: 0; }
+.search-students-btn { background-color: #162231; border: 1px solid #415a77; color: #e0e1dd; padding: 0.8rem 1.5rem; font-size: 1rem; font-weight: bold; border-radius: 8px; text-decoration: none; transition: all 0.2s ease-in-out; }
+.search-students-btn:hover { background-color: #2f81f7; border-color: #2f81f7; }
+
+.history-tabs { display: flex; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid #415a77; }
+.tab-btn { background: none; border: none; color: #778da9; padding: 0.5rem 0.25rem; cursor: pointer; font-size: 1.1rem; font-weight: 600; border-bottom: 3px solid transparent; transition: color 0.2s; }
+.tab-btn.active { color: #00ffff; border-bottom: 3px solid #00ffff; }
+
+.approval-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap: 1.5rem; }
+.approval-card { background-color: #162231; border: 1px solid #415a77; border-radius: 16px; padding: 1.5rem; display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
+.approval-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 255, 255, 0.1); }
+.photo-comparison { display: flex; gap: 1rem; }
+.photo-box img { width: 120px; height: 120px; border-radius: 12px; border: 2px solid #415a77; object-fit: cover; }
+.photo-box p { margin-top: 0.5rem; font-size: 0.9rem; color: #778da9; font-weight: bold; text-align: center; }
+.approval-details h3 { font-size: 1.2rem; margin-bottom: 0.25rem; }
+.approval-details p { color: #778da9; font-size: 0.9rem; margin-bottom: 1rem; }
+.approval-actions { display: flex; gap: 1rem; margin-top: 1rem; }
+
+.empty-state { text-align: center; padding: 4rem; color: #778da9; }
+.empty-state-icon { font-size: 4rem; margin-bottom: 1rem; opacity: 0.5; }
+
+.history-table { width: 100%; border-collapse: collapse; }
+.history-table th, .history-table td { padding: 0.8rem 1rem; text-align: left; border-bottom: 1px solid #415a77; }
+.history-table th { color: #778da9; font-size: 0.9rem; }

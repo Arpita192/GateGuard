@@ -1,0 +1,94 @@
+.profile-page {
+  background-color: #0d1b2a;
+  min-height: calc(100vh - 70px);
+  color: #e0e1dd;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: #162231;
+  border: 1px solid #415a77;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #415a77;
+}
+
+.avatar-upload {
+  position: relative;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #415a77;
+}
+
+.upload-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  background-color: #00ffff;
+  color: #0d1b2a;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.profile-info h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.profile-info p {
+  color: #778da9;
+}
+
+.profile-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.profile-form h3 {
+  grid-column: 1 / -1; /* Span across both columns */
+  font-size: 1.2rem;
+  color: #778da9;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  text-align: right;
+  margin-top: 2rem;
+}
+
+.form-actions button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #00ffff;
+  color: #0d1b2a;
+  border-radius: 8px;
+}

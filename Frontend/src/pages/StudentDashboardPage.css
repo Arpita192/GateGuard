@@ -1,0 +1,156 @@
+.dashboard-page {
+  background-color: #0d1b2a;
+  min-height: calc(100vh - 70px);
+  color: #e0e1dd;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  color: #778da9;
+}
+
+.dashboard-header .request-btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #00ffff;
+  color: #0d1b2a;
+  border-radius: 8px;
+}
+
+.dashboard-header .request-btn:disabled {
+  background-color: #415a77;
+  color: #778da9;
+  cursor: not-allowed;
+}
+
+/* Main content layout */
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+/* Card for the current pass status */
+.status-card {
+  background-color: #162231;
+  border: 1px solid #415a77;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.status-card h2, .pass-history h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #415a77;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.pass-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-item span:first-child {
+  font-size: 0.9rem;
+  color: #778da9;
+  margin-bottom: 0.25rem;
+}
+
+.detail-item span:last-child {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.status-badge.Pending { background-color: #f7b733; color: #1a202c; }
+.status-badge.Approved { background-color: #10B981; color: #fff; }
+.status-badge.Rejected { background-color: #EF4444; color: #fff; }
+.status-badge.Completed { background-color: #415a77; color: #e0e1dd; }
+
+.qr-code-container {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+/* Pass History Sidebar */
+.pass-history ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.history-item {
+  background-color: #162231;
+  border: 1px solid #415a77;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-item .reason {
+  font-weight: 500;
+}
+
+.history-item .date {
+  font-size: 0.8rem;
+  color: #778da9;
+}
+
+/* --- Styles for the new tabs --- */
+.history-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #415a77;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: #778da9;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+  color: #00ffff;
+  border-bottom: 3px solid #00ffff;
+}

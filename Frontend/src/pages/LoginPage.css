@@ -1,0 +1,126 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #0d1b2a;
+}
+
+.circle-container {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-container .bar {
+  position: absolute;
+  width: 8px;
+  height: 80px; /* <-- Reduced height */
+  background: #00ffff;
+  opacity: 0.1;
+  animation: pulse 6s linear infinite;
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    height: 100px; /* <-- Reduced height */
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  }
+  20% {
+    opacity: 0.1;
+    height: 80px; /* <-- Reduced height */
+    box-shadow: none;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+/* --- Login Form Styling (no changes from here down) --- */
+.login-form-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 380px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.login-form-container h1 {
+  color: #e0e1dd;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #e0e1dd;
+  border: 1px solid #415a77;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-group input::placeholder {
+  color: #778da9;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #778da9;
+  text-decoration: none;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 25px;
+  border: none;
+  background-color: #00ffff;
+  color: #0d1b2a;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.login-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 25px rgba(0, 255, 255, 0.6);
+}
+
+.signup-link {
+  margin-top: 1.5rem;
+  color: #778da9;
+}
+
+.signup-link a {
+  color: #00ffff;
+  font-weight: bold;
+  text-decoration: none;
+}

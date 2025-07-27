@@ -1,0 +1,62 @@
+.warden-dashboard {
+  background-color: #0d1b2a;
+  min-height: calc(100vh - 70px);
+  color: #e0e1dd;
+  padding: 2rem 3rem;
+}
+
+.clerk-header { /* Reusing this style for consistency */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #415a77;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.clerk-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Tab styles */
+.history-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #415a77;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: #778da9;
+  padding: 0.5rem 0.25rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s;
+}
+
+.tab-btn.active {
+  color: #00ffff;
+  border-bottom: 3px solid #00ffff;
+}
+
+/* Pending Request Card Styles */
+.request-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.request-card { background-color: #162231; border: 1px solid #415a77; border-radius: 16px; padding: 1.5rem; display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: center; }
+.student-avatar img { width: 60px; height: 60px; border-radius: 50%; }
+.request-details h3 { font-size: 1.2rem; margin-bottom: 0.25rem; }
+.request-details .meta-info { font-size: 0.9rem; color: #778da9; margin-bottom: 0.75rem; }
+.request-details .reason { font-style: italic; }
+.request-actions { display: flex; gap: 1rem; }
+
+/* History Section Styles */
+.history-controls { margin-bottom: 1rem; }
+.history-controls input { padding: 0.75rem; background-color: #0d1b2a; border: 1px solid #415a77; border-radius: 8px; color: #e0e1dd; width: 300px; }
+.history-table { width: 100%; border-collapse: collapse; }
+.history-table th, .history-table td { padding: 0.8rem 1rem; text-align: left; border-bottom: 1px solid #415a77; }
+.history-table th { color: #778da9; font-size: 0.9rem; }

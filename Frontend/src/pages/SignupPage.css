@@ -1,0 +1,10 @@
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0d1b2a;
+}
+
+/* Note: It reuses .login-form-container and other styles from LoginPage.css */
+/* Make sure LoginPage.css is imported somewhere globally or in App.js */
