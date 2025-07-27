@@ -24,28 +24,35 @@ QR Code Verification: Upon approval, a unique, tamper-proof QR code is generated
 Centralized Management: Provides a single source of truth for student information, leave history, and user roles, eliminating paperwork and improving record-keeping.
 
 🔄 System Workflow
-This diagram illustrates the complete workflow, showing the primary leave pass process and the administrative roles that support it.
+This diagram illustrates the complete workflow of the GateGuard system. GitHub will render this code into a visual flowchart.
 
-                               +------------------+
-                               |   SUPER ADMIN    |
-                               | (Manages All     |
-                               |   User Accounts) |
-                               +------------------+
-                                       |
-                                       v (oversees)
-+------------------+      +------------------+      +------------------+
-|     STUDENT      |----->|      WARDEN      |----->|     SECURITY     |
-+------------------+      +------------------+      +------------------+
-| - Applies for    |      | - Reviews Request|      | - Scans QR Code  |
-|   Leave Pass     |      | - Approves/Rejects|      | - Verifies Pass  |
-+------------------+      +------------------+      +------------------+
-        ^
-        | (Manages Records of)
-        |
-+------------------+
-|      CLERK       |
-+------------------+
+graph TD
+    subgraph "Leave Pass Process"
+        A(Student Applies for Pass) --> B{Warden Reviews Request};
+        B -- Approves --> C[Pass Approved & QR Code Generated];
+        B -- Rejects --> D[Pass Rejected];
+        C --> E(Student Shows QR at Gate);
+        E --> F[Security Scans QR Code];
+        F --> G{Verify Pass Details};
+        G -- Valid --> H(Log Student Exit/Entry);
+        G -- Invalid --> I(Deny Exit/Entry);
+    end
 
+    subgraph "Administrative Roles"
+        SA(Super Admin) -- Manages All Accounts --> U(Users: Student, Warden, etc.);
+        CL(Clerk) -- Manages Student Records --> A;
+    end
+
+    style A fill:#cde4ff,stroke:#5a9bd5
+    style B fill:#fff2cc,stroke:#ffbf00
+    style C fill:#d5e8d4,stroke:#82b366
+    style D fill:#f8cecc,stroke:#b85450
+    style E fill:#cde4ff,stroke:#5a9bd5
+    style F fill:#dae8fc,stroke:#6c8ebf
+    style H fill:#d5e8d4,stroke:#82b366
+    style I fill:#f8cecc,stroke:#b85450
+    style SA fill:#e1d5e7,stroke:#9673a6
+    style CL fill:#e1d5e7,stroke:#9673a6
 
 🛠️ Tech Stack
 Frontend:
@@ -66,9 +73,9 @@ Express.js: A web application framework for Node.js, used to build the RESTful A
 
 Database:
 
-MongoDB: A NoSQL database used to store user and pass information (can be swapped with MySQL).
+MySQL: A relational database used to store all user and pass data.
 
-Mongoose: An Object Data Modeling (ODM) library for MongoDB and Node.js.
+Sequelize: A promise-based Node.js ORM for MySQL.
 
 Authentication:
 
@@ -82,7 +89,7 @@ To get a local copy up and running, follow these simple steps.
 Prerequisites
 Node.js and npm (or yarn) installed
 
-A running instance of MongoDB (or MySQL)
+A running instance of MySQL
 
 Git
 
@@ -99,7 +106,10 @@ npm install
 
 # Create a .env file in the backend folder and add your environment variables:
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=gateguard
 JWT_SECRET=your_super_secret_jwt_key
 
 # Start the backend server
