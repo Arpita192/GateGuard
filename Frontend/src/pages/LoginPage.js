@@ -7,6 +7,7 @@ import './LoginPage.css';
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const { login } = useAuth(); // Get the login function from context
@@ -74,9 +75,8 @@ const LoginPage = () => {
                     );
                 })}
             </div>
-            <div className="login-form-container">
-                <h1>Login</h1>
                 <form onSubmit={handleLogin}>
+                    <h1 className='login'>Login</h1>
                     <div className="input-group">
                         <input
                             type="email"
@@ -87,24 +87,37 @@ const LoginPage = () => {
                         />
                     </div>
                     <div className="input-group">
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
+                        <div className="password-input-container">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                            <button 
+                                type="button"
+                                className="password-toggle-btn"
+                                onClick={() => setShowPassword(!showPassword)}
+                                aria-label={showPassword ? "Hide password" : "Show password"}
+                            >
+                                <i className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
+                            </button>
+                        </div>
                     </div>
-                    {error && <p style={{ color: '#ef4444', marginBottom: '1rem' }}>{error}</p>}
-                    <a href="#forgot" className="forgot-password">Forgot your password?</a>
+                    <Link to="/forgot-password" className="forgot-password">
+                        Forgot your password?
+                    </Link>
                     <button type="submit" className="login-button" disabled={loading}>
                         {loading ? 'Logging in...' : 'Login'}
                     </button>
-                    <p className="signup-link">
-                        Don't have an account? <Link to="/signup">Signup</Link>
-                    </p>
+                    <div className="create-account-link">
+                        Don't have an admin account?
+                        <Link to="/signup">Create Admin Account</Link>
+                    </div>
+                    {error && <div className="error-message">{error}</div>}
                 </form>
-            </div>
+                <div></div>
         </div>
     );
 };

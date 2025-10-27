@@ -91,7 +91,7 @@ const StudentDashboardPage = () => {
                             )}
                         </div>
                         {displayPass ? (
-                            <div>
+                            <div className="pass">
                                 <div className="pass-details-grid">
                                     <div className="detail-item"><span>Status</span><span className={`status-badge ${displayPass.status}`}>{displayPass.status}</span></div>
                                     <div className="detail-item"><span>Reason</span><span>{displayPass.reason}</span></div>

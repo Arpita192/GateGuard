@@ -6,19 +6,39 @@ const { JWT_SECRET } = require('../config');
 const generateToken = (id) => jwt.sign({ id }, JWT_SECRET, { expiresIn: '30d' });
 
 const register = async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, role, institute } = req.body;
     try {
+        // Validate role
+        const validRoles = ['student', 'clerk', 'warden', 'security', 'super-admin'];
+        if (!validRoles.includes(role)) {
+            return res.status(400).json({ message: 'Invalid role specified' });
+        }
+
+        // Check if institute is provided for admin
+        if (role === 'super-admin' && !institute) {
+            return res.status(400).json({ message: 'Institute name is required for admin account' });
+        }
+
         let user = await User.findOne({ email });
         if (user) {
             return res.status(400).json({ message: 'User already exists' });
         }
+
+        // Check if admin already exists for this institute
+        if (role === 'super-admin') {
+            const existingAdmin = await User.findOne({ institute, role: 'super-admin' });
+            if (existingAdmin) {
+                return res.status(400).json({ message: 'An admin account already exists for this institute' });
+            }
+        }
+
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
         user = await User.create({
             name,
             email,
             password: hashedPassword,
-            role: email.includes('admin') ? 'super-admin' : 'student',
+            role,
         });
         res.status(201).json({ message: 'Registration successful.' });
     } catch (error) {

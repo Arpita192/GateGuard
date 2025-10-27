@@ -39,9 +39,12 @@
 
 /* Main content layout */
 .dashboard-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Card for the current pass status */
@@ -50,6 +53,9 @@
   border: 1px solid #415a77;
   border-radius: 16px;
   padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .status-card h2, .pass-history h2 {
@@ -61,10 +67,15 @@
   align-items: center;
 }
 
+.pass{
+    text-align: center;
+    align-content: center;
+}
 .pass-details-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  
 }
 
 .detail-item {

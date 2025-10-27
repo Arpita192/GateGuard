@@ -6,6 +6,10 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/api";
 // Create the Axios instance
 const api = axios.create({
     baseURL: API_URL,
+    headers: {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+    }
 });
 
 // Use the interceptor to add the auth token to every request

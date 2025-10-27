@@ -5,7 +5,8 @@ const userSchema = new mongoose.Schema({
     // --- Common Fields for All Users ---
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true, lowercase: true },
-    password: { type: String, required: true, select: false },
+    password: { type: String, required: true },
+    institute: { type: String, required: true, default: "GateGuard Institute" },
     role: {
         type: String,
         required: true,
@@ -25,6 +26,15 @@ const userSchema = new mongoose.Schema({
     batch: { type: String },
     
 }, { timestamps: true });
+
+// Add compound index for institute and admin role
+userSchema.index(
+    { institute: 1, role: 1 },
+    { 
+        unique: true,
+        partialFilterExpression: { role: 'super-admin' }
+    }
+);
 
 userSchema.methods.comparePassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
